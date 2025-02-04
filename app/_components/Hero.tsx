@@ -31,7 +31,7 @@ const HeroSection: React.FC = () => {
         />
 
         {/* Talent Counter - Positioned Absolutely Over Image */}
-        <div className="absolute bottom-0 md:bottom-[-50px] left-1/2 transform -translate-x-1/2 bg-white px-6 py-2 rounded-full shadow-lg">
+        <div className="absolute bottom-0 md:bottom-[-50px] left-[200px] transform -translate-x-1/2 bg-white px-6 py-2 rounded-full shadow-lg">
           <TalentCounter />
         </div>
       </div>

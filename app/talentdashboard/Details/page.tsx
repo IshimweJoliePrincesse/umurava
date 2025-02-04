@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import Homepage from "../Homepage/Homepage";
 import Hackathon from "../Hackathon/Hackathon";
 import Modal from "../Community/Modal";
+import DetailsDashboard from "./Details";
+import DashboardLayout from "@/app/CommomComponents/DashboardLayout";
 
 const Home = () => {
   const [activePage, setActivePage] = useState("Challenges & Hackathons");
@@ -18,13 +20,13 @@ const Home = () => {
   };
 
   return (
-    <Details activePage={activePage} onNavigate={handleNavigation}>
+    <DashboardLayout activePage={activePage} onNavigate={handleNavigation}>
       {activePage === "Dashboard" && <Homepage />}
       {activePage === "Challenges & Hackathons" && <Hackathon />}
       {activePage === "Details" && <Details />}{" "}
       {/* You can add content here for "Details" */}
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-    </Details>
+    </DashboardLayout>
   );
 };
 

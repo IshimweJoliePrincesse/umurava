@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Homepage from "./Homepage/Homepage";
 import Hackathon from "./Hackathon/Hackathon";
-import Details from "./Details/Details";
+import DetailsDashboard from "./Details/Details";
 import Modal from "./Community/Modal";
 import DashboardLayout from "../CommomComponents/DashboardLayout";
 
@@ -23,7 +23,7 @@ const TalentDashboard = () => {
     <DashboardLayout activePage={activePage} onNavigate={handleNavigation}>
       {activePage === "Dashboard" && <Homepage />}
       {activePage === "Challenges & Hackathons" && <Hackathon />}
-      {activePage === "Details" && <Details />}
+      {activePage === "Details" && <DetailsDashboard />}
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </DashboardLayout>
   );

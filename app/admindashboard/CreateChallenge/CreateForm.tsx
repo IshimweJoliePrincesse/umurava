@@ -23,20 +23,45 @@ const CreateForm: React.FC = () => {
     brief: "",
     tasks: "",
   });
+
+  const [errors, setErrors] = useState<Partial<FormData>>({});
   const router = useRouter();
-  const createdChallenge = () => {
-    router.push("/admindashboard/AdminDetails/admindetails");
+
+  const validateForm = () => {
+    let newErrors: Partial<FormData> = {};
+
+    Object.entries(formData).forEach(([key, value]) => {
+      if (!value.trim()) {
+        newErrors[key as keyof FormData] = `${key} is required`;
+      }
+    });
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   };
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+
+    // Clear error when user types
+    setErrors({ ...errors, [e.target.name]: "" });
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Handle form submission logic here
+
+    if (!validateForm()) {
+      return;
+    }
+
     console.log(formData);
+    createdChallenge();
+  };
+
+  const createdChallenge = () => {
+    router.push("/admindashboard/AdminDetails/admindetails");
   };
 
   return (
@@ -53,162 +78,89 @@ const CreateForm: React.FC = () => {
         </p>
       </div>
 
-      <div className="mb-6">
-        <label
-          className="block text-gray-700 font-semibold mb-2"
-          htmlFor="title"
-        >
-          Challenge/Hackathon Title
-        </label>
-        <input
-          className="appearance-none border border-gray-300 rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500"
-          id="title"
-          type="text"
-          name="title"
-          placeholder="Enter Title"
-          value={formData.title}
-          onChange={handleChange}
-        />
-      </div>
-
-      <div className="grid grid-cols-2 gap-6 mb-6">
-        <div>
+      {[
+        { label: "Challenge/Hackathon Title", name: "title", type: "text" },
+        { label: "Deadline", name: "deadline", type: "text" },
+        { label: "Duration", name: "duration", type: "text" },
+        { label: "Money Prize", name: "prize", type: "text" },
+        { label: "Contact Email", name: "contactEmail", type: "email" },
+      ].map(({ label, name, type }) => (
+        <div key={name} className="mb-6">
           <label
             className="block text-gray-700 font-semibold mb-2"
-            htmlFor="deadline"
+            htmlFor={name}
           >
-            Deadline
+            {label}
           </label>
           <input
-            className="appearance-none border border-gray-300 rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500"
-            id="deadline"
-            type="text"
-            name="deadline"
-            placeholder="Date"
-            value={formData.deadline}
+            className={`appearance-none border ${
+              errors[name as keyof FormData]
+                ? "border-red-500"
+                : "border-gray-300"
+            } rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500`}
+            id={name}
+            type={type}
+            name={name}
+            placeholder={`Enter ${label}`}
+            value={formData[name as keyof FormData]}
             onChange={handleChange}
           />
+          {errors[name as keyof FormData] && (
+            <p className="text-red-500 text-xs mt-1">
+              {errors[name as keyof FormData]}
+            </p>
+          )}
         </div>
+      ))}
 
-        <div>
+      {[
+        {
+          label: "Project Description",
+          name: "description",
+          rows: 5,
+          note: "Keep this simple, up to 250 characters",
+        },
+        {
+          label: "Project Brief",
+          name: "brief",
+          rows: 2,
+          note: "Keep it simple, up to 50 characters",
+        },
+        {
+          label: "Project Tasks & Description",
+          name: "tasks",
+          rows: 6,
+          note: "Describe the tasks, keep it under 500 characters",
+        },
+      ].map(({ label, name, rows, note }) => (
+        <div key={name} className="mb-6">
           <label
             className="block text-gray-700 font-semibold mb-2"
-            htmlFor="duration"
+            htmlFor={name}
           >
-            Duration
+            {label}
           </label>
-          <input
-            className="appearance-none border border-gray-300 rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500"
-            id="duration"
-            type="text"
-            name="duration"
-            placeholder="Duration"
-            value={formData.duration}
+          <textarea
+            className={`appearance-none border ${
+              errors[name as keyof FormData]
+                ? "border-red-500"
+                : "border-gray-300"
+            } rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500`}
+            id={name}
+            name={name}
+            placeholder="Enter text here ..."
+            value={formData[name as keyof FormData]}
             onChange={handleChange}
+            rows={rows}
           />
+          {note && <p className="text-gray-600 text-xs mt-2">{note}</p>}
+          {errors[name as keyof FormData] && (
+            <p className="text-red-500 text-xs mt-1">
+              {errors[name as keyof FormData]}
+            </p>
+          )}
         </div>
-      </div>
-
-      <div className="grid grid-cols-2 gap-6 mb-6">
-        <div>
-          <label
-            className="block text-gray-700 font-semibold mb-2"
-            htmlFor="prize"
-          >
-            Money Prize
-          </label>
-          <input
-            className="appearance-none border border-gray-300 rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500"
-            id="prize"
-            type="text"
-            name="prize"
-            placeholder="Prize"
-            value={formData.prize}
-            onChange={handleChange}
-          />
-        </div>
-
-        <div>
-          <label
-            className="block text-gray-700 font-semibold mb-2"
-            htmlFor="contactEmail"
-          >
-            Contact Email
-          </label>
-          <input
-            className="appearance-none border border-gray-300 rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500"
-            id="contactEmail"
-            type="email"
-            name="contactEmail"
-            placeholder="Email"
-            value={formData.contactEmail}
-            onChange={handleChange}
-          />
-        </div>
-      </div>
-
-      <div className="mb-6">
-        <label
-          className="block text-gray-700 font-semibold mb-2"
-          htmlFor="description"
-        >
-          Project Description
-        </label>
-        <textarea
-          className="appearance-none border border-gray-300 rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500"
-          id="description"
-          name="description"
-          placeholder="Enter text here ..."
-          value={formData.description}
-          onChange={handleChange}
-          rows={5}
-        />
-        <p className="text-gray-600 text-xs mt-2">
-          Keep this simple, up to 250 characters
-        </p>
-      </div>
-
-      <div className="mb-6">
-        <label
-          className="block text-gray-700 font-semibold mb-2"
-          htmlFor="brief"
-        >
-          Project Brief
-        </label>
-        <textarea
-          className="appearance-none border border-gray-300 rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500"
-          id="brief"
-          name="brief"
-          placeholder="Enter text here ..."
-          value={formData.brief}
-          onChange={handleChange}
-          rows={2}
-        />
-        <p className="text-gray-600 text-xs mt-2">
-          Keep it simple, up to 50 characters
-        </p>
-      </div>
-
-      <div className="mb-6">
-        <label
-          className="block text-gray-700 font-semibold mb-2"
-          htmlFor="tasks"
-        >
-          Project Tasks & Description
-        </label>
-        <textarea
-          className="appearance-none border border-gray-300 rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500"
-          id="tasks"
-          name="tasks"
-          placeholder="Enter text here ..."
-          value={formData.tasks}
-          onChange={handleChange}
-          rows={6}
-        />
-        <p className="text-gray-600 text-xs mt-2">
-          Describe the tasks, keep it under 500 characters
-        </p>
-      </div>
+      ))}
 
       <div className="flex items-center justify-between">
         <button
@@ -218,8 +170,13 @@ const CreateForm: React.FC = () => {
           Cancel
         </button>
         <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
-          onClick={createdChallenge}
+          type="submit"
+          className={`bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition ${
+            Object.values(formData).some((value) => !value.trim())
+              ? "opacity-50 cursor-not-allowed"
+              : ""
+          }`}
+          disabled={Object.values(formData).some((value) => !value.trim())}
         >
           Create Challenge
         </button>

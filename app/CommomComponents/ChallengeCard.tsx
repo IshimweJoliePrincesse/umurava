@@ -4,7 +4,7 @@ import React from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 // import logo from "../../../../public/images/logo.png";
-import Link from "next/link";
+import ProjectBrief from "./ProjectBrief";
 
 interface ChallengeCardProps {
   description: string;
@@ -21,7 +21,7 @@ const ChallengeCard: React.FC<ChallengeCardProps> = ({
 }) => {
   const router = useRouter();
   const handleViewChallenge = () => {
-    router.push("/talentdashboard/Details");
+    router.push("/talentdashboard/projectBrief");
   };
 
   return (

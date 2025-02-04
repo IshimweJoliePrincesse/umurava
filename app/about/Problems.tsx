@@ -8,9 +8,9 @@ export default function ProblemCards() {
         Why we are solving this problem
       </h1>
 
-      <div className="grid gap-6 md:grid-cols-2 w-[1000px] ml-72 mr-72">
-        {/* First card spans the full width */}
-        <Card className="bg-[#3B82F6] text-white col-span-full">
+      <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center">
+        {/* First card spans the full width on small screens */}
+        <Card className="bg-[#3B82F6] text-white">
           <CardContent className="p-6">
             <div className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center mb-4">
               <BriefcaseBusiness className="w-6 h-6 text-white" />

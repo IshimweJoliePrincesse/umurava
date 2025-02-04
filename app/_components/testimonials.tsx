@@ -22,26 +22,26 @@ export default function TestimonialsSection() {
     },
     {
       id: 2,
-      name: "Manzi Jack",
-      role: "Product Designer, Kigali",
+      name: "Alice Uwase",
+      role: "Software Engineer, Rwanda",
       avatarUrl: "/images/blue.png",
     },
     {
       id: 3,
-      name: "Manzi Jack",
-      role: "Product Designer, Kigali",
+      name: "Kwizera David",
+      role: "Data Scientist, Kenya",
       avatarUrl: "/images/blue.png",
     },
   ];
 
   return (
     <section className="px-4 py-16 md:py-24 bg-[#F9FAFB]">
-      <div className="container mx-auto">
-        <div className="max-w-2xl mx-auto mb-12 ml-[113px]">
-          <h2 className="text-3xl font-bold tracking-tight mb-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="max-w-2xl mx-auto text-center mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-4">
             Users are in Love with Skills Challenges Program
           </h2>
-          <p className="text-muted-foreground">
+          <p className="text-gray-600">
             See what our clients say about working with us. Their success speaks
             for our dedication and expertise.
           </p>
@@ -52,15 +52,15 @@ export default function TestimonialsSection() {
             align: "start",
             loop: true,
           }}
-          className="w-[1200px] ml-40 h-96 "
+          className="w-full"
         >
-          <CarouselContent className="-ml-2 md:-ml-4 gap-36">
+          <CarouselContent className="gap-6 md:gap-10">
             {testimonials.map((testimonial) => (
               <CarouselItem
                 key={testimonial.id}
-                className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3"
+                className="pl-2 md:pl-4 sm:basis-2/3 md:basis-1/2 lg:basis-1/3"
               >
-                <Card className="border border-gray-200 shadow-xl rounded-xl overflow-hidden">
+                <Card className="border border-gray-200 shadow-lg rounded-lg">
                   <CardContent className="p-6">
                     <div className="relative aspect-video rounded-lg overflow-hidden bg-blue-600 flex items-center justify-center mb-6">
                       <Button
@@ -89,7 +89,7 @@ export default function TestimonialsSection() {
                         <h3 className="font-semibold text-lg">
                           {testimonial.name}
                         </h3>
-                        <p className="text-sm text-muted-foreground">
+                        <p className="text-sm text-gray-500">
                           {testimonial.role}
                         </p>
                       </div>
@@ -99,16 +99,16 @@ export default function TestimonialsSection() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="hidden md:flex -left-12" />
-          <CarouselNext className="hidden md:flex -right-12" />
+          <CarouselPrevious className="hidden md:flex -left-6" />
+          <CarouselNext className="hidden md:flex -right-6" />
         </Carousel>
 
         <div className="flex justify-center gap-2 mt-8">
-          {[0, 1, 2, 3].map((dot, index) => (
+          {testimonials.map((_, index) => (
             <div
               key={index}
               className={`h-2 w-2 rounded-full ${
-                index === 2 ? "bg-blue-500" : "bg-gray-300"
+                index === 0 ? "bg-blue-500" : "bg-gray-300"
               }`}
             />
           ))}

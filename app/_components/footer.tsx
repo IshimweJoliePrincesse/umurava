@@ -21,22 +21,45 @@ export default function Footer() {
           </div>
 
           {/* Social Media Icons */}
-          <div className="flex justify-center lg:justify-end gap-4 flex-wrap">
-            {["facebook", "google", "linkedin", "youtube"].map((platform) => (
-              <Link
-                key={platform}
-                href="#"
-                className="rounded-full overflow-hidden w-8 h-8"
-              >
-                <Image
-                  src={`/images/${platform}.png`}
-                  alt={platform}
-                  width={32}
-                  height={32}
-                  className="w-full h-full object-cover"
-                />
-              </Link>
-            ))}
+          <div className="flex justify-center lg:justify-end gap-4">
+            <Link href="#" className="rounded-full overflow-hidden w-8 h-8">
+              <Image
+                src="/images/facebook.png"
+                alt="Facebook"
+                width={32}
+                height={32}
+                className="w-full h-full object-cover"
+              />
+            </Link>
+
+            <Link href="#" className="rounded-full overflow-hidden w-8 h-8">
+              <Image
+                src="/images/google.png"
+                alt="Google"
+                width={32}
+                height={32}
+                className="w-full h-full object-cover"
+              />
+            </Link>
+
+            <Link href="#" className="rounded-full overflow-hidden w-8 h-8">
+              <Image
+                src="/images/linkedin.png"
+                alt="LinkedIn"
+                width={32}
+                height={32}
+                className="w-full h-full object-cover"
+              />
+            </Link>
+            <Link href="#" className="rounded-full overflow-hidden w-8 h-8">
+              <Image
+                src="/images/youtube.png"
+                alt="YouTube"
+                width={32}
+                height={32}
+                className="w-full h-full object-cover"
+              />
+            </Link>
           </div>
         </div>
 
@@ -44,12 +67,12 @@ export default function Footer() {
         <hr className="border-white/20 mb-8" />
 
         {/* Main Content */}
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-8 lg:grid-cols-3">
           {/* Address Section */}
-          <div className="text-center sm:text-left">
+          <div>
             <h3 className="text-lg font-semibold mb-4">Our Address</h3>
             <div className="space-y-2 text-sm text-gray-300">
-              <div className="flex items-center gap-2 justify-center sm:justify-start">
+              <div className="flex items-center gap-2">
                 <span>Email: </span>
                 <Link
                   href="mailto:career@tickets.com"
@@ -58,11 +81,11 @@ export default function Footer() {
                   career@tickets.com
                 </Link>
               </div>
-              <div className="flex items-center gap-2 justify-center sm:justify-start">
+              <div className="flex items-center gap-2">
                 <span>Address: </span>
                 <span>89 KG 14 Ave, Kigali</span>
               </div>
-              <div className="flex items-center gap-2 justify-center sm:justify-start">
+              <div className="flex items-center gap-2">
                 <span>Phone: </span>
                 <Link href="tel:+250700000" className="hover:text-white">
                   +250700000
@@ -71,30 +94,35 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div className="text-center sm:text-left">
+          <div>
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <nav className="space-y-2 text-sm text-gray-300">
-              {["Home", "Program", "About", "Contact Us"].map((link) => (
-                <Link key={link} href="#" className="block hover:text-white">
-                  {link}
-                </Link>
-              ))}
+              <Link href="#" className="block hover:text-white">
+                Home
+              </Link>
+              <Link href="#" className="block hover:text-white">
+                Program
+              </Link>
+              <Link href="#" className="block hover:text-white">
+                About
+              </Link>
+              <Link href="#" className="block hover:text-white">
+                Contact Us
+              </Link>
             </nav>
           </div>
 
-          {/* Newsletter Subscription */}
-          <div className="text-center sm:text-left">
+          <div>
             <h3 className="text-lg font-semibold mb-4">
               Join our newsletter to keep up to date with us!
             </h3>
-            <div className="flex flex-col sm:flex-row items-center bg-white rounded-md">
+            <div className="flex bg-white rounded-md pl-28">
               <input
                 type="email"
                 placeholder="Email"
-                className="flex-grow px-4 py-2 text-black placeholder:text-gray-400 border-none rounded-t-md sm:rounded-l-md sm:rounded-t-none w-full focus:outline-none focus:ring-0"
+                className="flex-grow bg-white/10 border-white/20 text-black placeholder:text-gray-400 rounded-md focus:outline-none focus:ring-0 focus:border-white/30 cursor-text"
               />
-              <button className="bg-blue-600 text-white px-4 py-2 w-full sm:w-auto rounded-b-md sm:rounded-r-md sm:rounded-b-none hover:bg-blue-700 transition-colors">
+              <button className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors cursor-pointer">
                 Subscribe
               </button>
             </div>
@@ -103,9 +131,8 @@ export default function Footer() {
 
         <hr className="my-12 border-white/10" />
 
-        {/* Copyright Section */}
-        <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400 text-center md:text-left">
-          <p>Copyright © All Rights Reserved SawaPay 2024</p>
+        <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+          <p>Copyright © All Rights Reserved SawaPay 2024 </p>
           <div className="flex gap-4 mt-4 md:mt-0">
             <Link href="#" className="hover:text-white">
               Privacy Policy

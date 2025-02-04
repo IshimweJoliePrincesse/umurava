@@ -89,46 +89,15 @@ export default function ChallengesPage() {
                       Skills Needed:
                     </p>
                     <div className="flex flex-wrap gap-2">
-                      {challenge.skills.map(
-                        (
-                          skill:
-                            | string
-                            | number
-                            | bigint
-                            | boolean
-                            | ReactElement<
-                                unknown,
-                                string | JSXElementConstructor<any>
-                              >
-                            | Iterable<ReactNode>
-                            | ReactPortal
-                            | Promise<
-                                | string
-                                | number
-                                | bigint
-                                | boolean
-                                | ReactPortal
-                                | ReactElement<
-                                    unknown,
-                                    string | JSXElementConstructor<any>
-                                  >
-                                | Iterable<ReactNode>
-                                | null
-                                | undefined
-                              >
-                            | null
-                            | undefined,
-                          i: Key | null | undefined
-                        ) => (
-                          <Button
-                            key={i}
-                            variant="outline"
-                            className="text-blue-600 border-blue-600 whitespace-nowrap text-xs px-2 py-1 hover:bg-blue-700 rounded-full"
-                          >
-                            {skill}
-                          </Button>
-                        )
-                      )}
+                      {challenge.skills.map((skill: string, i: string) => (
+                        <Button
+                          key={i}
+                          variant="outline"
+                          className="text-blue-600 border-blue-600 whitespace-nowrap text-xs px-2 py-1 hover:bg-blue-700 rounded-full"
+                        >
+                          {skill}
+                        </Button>
+                      ))}
                     </div>
                   </div>
                   <div className="flex items-center gap-2">

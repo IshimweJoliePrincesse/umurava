@@ -10,7 +10,6 @@ export default function SkillsChallenges() {
     { name: "Data Analysis & Research", active: false },
     { name: "Animation", active: false },
     { name: "Videography & Photography", active: false },
-    { name: "Data Science", active: false },
     { name: "AI & Machine Learning", active: false },
     { name: "Web3", active: false },
     { name: "Digital Marketing & Communication", active: false },
@@ -18,26 +17,28 @@ export default function SkillsChallenges() {
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-12">
+      {/* Title Section */}
       <div className="text-center mb-12">
         <h2 className="text-2xl md:text-3xl font-bold mb-2">
           Skills Challenges Cover various in-demand skills
-          <br />
+          <br className="hidden md:block" />
           and Careers for the digital economy
         </h2>
-        <p className="text-muted-foreground">
+        <p className="text-gray-600">
           Explore the projects that various talents are working on.
         </p>
       </div>
 
-      <div className="flex flex-wrap gap-2 justify-center mb-12">
+      {/* Skills Buttons */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 mb-12">
         {skills.map((skill, index) => (
           <Button
             key={index}
             variant={skill.active ? "default" : "secondary"}
-            className={`rounded-full ${
+            className={`rounded-full w-full py-2 text-sm transition ${
               skill.active
-                ? "bg-blue-500 hover:bg-blue-600"
-                : "bg-gray-100 hover:bg-gray-200"
+                ? "bg-blue-500 hover:bg-blue-600 text-white"
+                : "bg-gray-100 hover:bg-gray-200 text-gray-800"
             }`}
           >
             {skill.name}
@@ -45,17 +46,19 @@ export default function SkillsChallenges() {
         ))}
       </div>
 
-      <Card className=" p-8 rounded-xl bg-[#F1F1F1]">
-        <div className="grid md:grid-cols-2 gap-8 items-center">
+      {/* Featured Project Section */}
+      <Card className="p-6 rounded-lg bg-[#F1F1F1]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          {/* Left Section - Text */}
           <div className="space-y-4">
             <div className="h-8 w-8 bg-gray-900 rounded-full flex items-center justify-center">
               <span className="text-white text-sm">
                 <span className="text-[#228B22]">s</span>f.
               </span>
             </div>
-            <p className="text-lg">
+            <p className="text-lg text-gray-800">
               The Embedded Finance Platform and Payroll Management Software
-              Solutions for yout organization and Workforce
+              Solutions for your organization and Workforce
             </p>
             <Button
               variant="link"
@@ -64,24 +67,27 @@ export default function SkillsChallenges() {
               Learn more →
             </Button>
           </div>
-          <div className="relative">
+
+          {/* Right Section - Image */}
+          <div className="relative w-full flex justify-center">
             <Image
               src="/images/dashboard.png"
               alt="Dashboard preview"
-              width={600}
-              height={400}
-              className="rounded-lg shadow-lg"
+              width={500}
+              height={300}
+              className="rounded-md shadow-lg w-full max-w-[500px]"
             />
           </div>
         </div>
       </Card>
 
+      {/* Pagination Dots */}
       <div className="flex justify-center gap-2 mt-8">
         {[0, 1, 2, 3].map((dot, index) => (
           <div
             key={index}
-            className={`h-2 w-2 rounded-full ${
-              index === 2 ? "bg-blue-500" : "bg-gray-300"
+            className={`h-2 w-2 rounded-full transition ${
+              index === 2 ? "bg-blue-500 scale-125" : "bg-gray-300"
             }`}
           />
         ))}

@@ -1,29 +1,28 @@
 "use client";
-
 import React, { useState } from "react";
-import DashboardLayout from "../CommomComponents/DashboardLayout";
 import Homepage from "./Homepage/Homepage";
-import Challenges from "./Challenges/Challenges";
-import CreateChallenge from "./CreateChallenge/CreateChallenge";
-import EditChallenge from "./EditChallenge/EditChallenge";
-import AdminDetails from "./AdminDetails/AdminDetails";
+import Details from "./AdminDetails/Details";
+import Challenges from "./Challenges/page";
+import Modal from "../talentdashboard/Community/Modal";
+import DashboardLayout from "../CommomComponents/DashboardLayout";
 
 const AdminDashboard = () => {
   const [activePage, setActivePage] = useState("Dashboard");
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleNavigation = (page: string) => {
-    setActivePage(page);
+    if (page == "Community") {
+      setIsModalOpen(true);
+    } else {
+      setActivePage(page);
+    }
   };
 
   return (
     <DashboardLayout activePage={activePage} onNavigate={handleNavigation}>
-      <div className="p-8">
-        <Homepage />
-        <Challenges />
-        <CreateChallenge />
-        <EditChallenge />
-        <AdminDetails />
-      </div>
+      {activePage == "Dashboard" && <Details />}
+      {activePage == "Challenges & Hackathons" && <Challenges />}
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </DashboardLayout>
   );
 };

@@ -1,12 +1,11 @@
 import React from "react";
-import NavigationBar from "../../CommomComponents/NavigationBar";
+import NavigationBar from "../../../CommomComponents/NavigationBar";
 
 interface DetailsNavigationProps {
   className?: string;
 }
 
 const DetailsNavigation: React.FC<DetailsNavigationProps> = ({ className }) => {
-
   const handleGoBack = () => {
     console.log("Go Back clicked");
   };
@@ -25,6 +24,6 @@ const DetailsNavigation: React.FC<DetailsNavigationProps> = ({ className }) => {
       />
     </div>
   );
-}
+};
 
 export default DetailsNavigation;

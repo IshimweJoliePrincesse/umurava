@@ -11,12 +11,14 @@ interface DetailsProps {
   children: React.ReactNode;
   activePage: string;
   onNavigate: (page: string) => void;
+  className: string;
 }
 
 const Details: React.FC<DetailsProps> = ({
   children,
   activePage,
   onNavigate,
+  
 }) => {
   return (
     <div className="flex h-screen">

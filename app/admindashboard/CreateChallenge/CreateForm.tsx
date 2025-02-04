@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 interface FormData {
   title: string;
@@ -22,7 +23,10 @@ const CreateForm: React.FC = () => {
     brief: "",
     tasks: "",
   });
-
+  const router = useRouter();
+  const createdChallenge = () => {
+    router.push("/admindashboard/AdminDetails/admindetails");
+  };
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -215,7 +219,7 @@ const CreateForm: React.FC = () => {
         </button>
         <button
           className="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
-          type="submit"
+          onClick={createdChallenge}
         >
           Create Challenge
         </button>

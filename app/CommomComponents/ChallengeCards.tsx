@@ -3,6 +3,7 @@
 import React from "react";
 import ChallengeCard from "./ChallengeCard";
 import Link from "next/link";
+import { ChevronRight } from "lucide-react";
 
 const challenges = [
   {
@@ -23,8 +24,6 @@ const challenges = [
     seniority: "Intermediate, Senior",
     timeline: "20 Days",
   },
-  
-
 ];
 
 const RecentChallenges: React.FC = () => {
@@ -34,9 +33,10 @@ const RecentChallenges: React.FC = () => {
         <h1 className="text-3xl font-bold text-gray-900">Recent Challenges</h1>
         <Link
           href="/challenges"
-          className="text-blue-600 hover:underline text-lg"
+          className="text-blue-600 hover:underline text-lg flex"
         >
           See all
+          <ChevronRight className="h-6 w-8 flex text-lg" />
         </Link>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">

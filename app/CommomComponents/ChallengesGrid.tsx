@@ -49,6 +49,54 @@ const challengesData = [
     seniority: "Intermediate, Senior",
     timeline: "40 Days",
   },
+  {
+    title: "Healthcare Appointment Booking App",
+    description:
+      "Build a mobile app for scheduling doctor appointments seamlessly.",
+    skills: ["React Native", "Firebase", "Node.js"],
+    seniority: "Intermediate, Senior",
+    timeline: "40 Days",
+  },
+  {
+    title: "Healthcare Appointment Booking App",
+    description:
+      "Build a mobile app for scheduling doctor appointments seamlessly.",
+    skills: ["React Native", "Firebase", "Node.js"],
+    seniority: "Intermediate, Senior",
+    timeline: "40 Days",
+  },
+  {
+    title: "Healthcare Appointment Booking App",
+    description:
+      "Build a mobile app for scheduling doctor appointments seamlessly.",
+    skills: ["React Native", "Firebase", "Node.js"],
+    seniority: "Intermediate, Senior",
+    timeline: "40 Days",
+  },
+  {
+    title: "Healthcare Appointment Booking App",
+    description:
+      "Build a mobile app for scheduling doctor appointments seamlessly.",
+    skills: ["React Native", "Firebase", "Node.js"],
+    seniority: "Intermediate, Senior",
+    timeline: "40 Days",
+  },
+  {
+    title: "Healthcare Appointment Booking App",
+    description:
+      "Build a mobile app for scheduling doctor appointments seamlessly.",
+    skills: ["React Native", "Firebase", "Node.js"],
+    seniority: "Intermediate, Senior",
+    timeline: "40 Days",
+  },
+  {
+    title: "Healthcare Appointment Booking App",
+    description:
+      "Build a mobile app for scheduling doctor appointments seamlessly.",
+    skills: ["React Native", "Firebase", "Node.js"],
+    seniority: "Intermediate, Senior",
+    timeline: "40 Days",
+  },
 ];
 
 const ChallengesGrid: React.FC = () => {

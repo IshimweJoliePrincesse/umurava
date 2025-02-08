@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import IntroStats from "./Introduction";
-import ChallengesGrid from "@/app/CommomComponents/ChallengesGrid";
+import ChallengesGrid from "./ChallengesGrid";
 import DashboardLayout from "@/app/CommomComponents/DashboardLayout";
 
 const Challenges = () => {

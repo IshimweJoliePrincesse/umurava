@@ -1,5 +1,5 @@
 import React from "react";
-import ProjectBrief from "../../../CommomComponents/ProjectBrief";
+import ProjectBrief from "./projectBrief";
 import DetailsNavigation from "./DetailsNavigation";
 import AdminInstructions from "./InstructionsCard";
 import ParticipantsPage from "./ParticipantsPage";

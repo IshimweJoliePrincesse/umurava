@@ -1,7 +1,8 @@
 "use client";
 import React from "react";
 import ChallengeStats from "./ChallengeStas";
-import RecentChallenges from "../../CommomComponents/ChallengeCards";
+import RecentChallenges from "../Challenges/ChallengeCards";
+import { useRouter } from "next/navigation";
 
 const Homepage = () => {
   return (

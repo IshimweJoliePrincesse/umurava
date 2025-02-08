@@ -3,7 +3,7 @@
 import Welcome from "./welcom";
 
 import ChallengeStats from "../Homepage/ChallengeStas";
-import RecentChallenges from "@/app/CommomComponents/ChallengeCards";
+import RecentChallenges from "../Challenges/ChallengeCards";
 
 const AdminDashboard = () => {
   return (

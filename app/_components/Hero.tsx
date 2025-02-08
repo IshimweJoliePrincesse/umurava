@@ -21,17 +21,24 @@ const HeroSection: React.FC = () => {
       </div>
 
       {/* Right Image Section */}
-      <div className="relative w-full lg:w-1/2 flex justify-center">
+      <div className="relative lg:w-1/2 flex justify-center grid-cols-2 gap-8">
         <Image
-          src="/images/homepage.png"
+          src="/images/homepage1.png"
           alt="home_page_photo"
-          width={570}
-          height={443}
-          className="w-full max-w-[500px] md:max-w-[570px] h-auto"
+          width={400}
+          height={600} // Adjust this to your desired height
+          className="w-full max-w-[500px] md:max-w-[570px] h-auto md:h-[800px]"
+        />
+        <Image
+          src="/images/homepage2.png"
+          alt="umurava photo"
+          width={400}
+          height={100}
+          className="w-full max-w-[500px] md:max-w-[570px]"
         />
 
         {/* Talent Counter - Positioned Absolutely Over Image */}
-        <div className="absolute bottom-0 md:bottom-[-50px] left-[200px] transform -translate-x-1/2 bg-white px-6 py-2 rounded-full shadow-lg">
+        <div className="absolute bottom-0 md:bottom-[-0.2px] left-[50px] transform -translate-x-1/2 bg-white px-10 py-2 rounded-full shadow-lg">
           <TalentCounter />
         </div>
       </div>

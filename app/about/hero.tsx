@@ -28,13 +28,9 @@ export default function StorySection() {
 
         {/* Right Column - Image */}
         <div className="relative aspect-video rounded-3xl overflow-hidden bg-[#2B71F0] p-4 mx-auto md:mx-0 w-full max-w-[350px] h-[350px]">
-          <Image
-            src="/images/video.png"
-            alt="Umurava Skills Challenges"
-            fill
-            className="object-cover rounded-2xl"
-            priority
-          />
+          <video className="object-cover w-full h-full rounded-2xl" controls>
+            <source src="images/video.mp4" type="video/mp4" />
+          </video>
         </div>
       </div>
     </div>
